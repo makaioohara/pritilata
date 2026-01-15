@@ -1,4 +1,4 @@
-# Copyright (c) 2025 PinkRibbon Contributors
+# Copyright (c) 2025 Pritilata AI Contributors
 #
 # File Name: main.py
 # Description: Entry point for processing test images. Processes all images in the ../data/test directory using the preprocessing pipeline.

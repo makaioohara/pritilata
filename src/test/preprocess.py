@@ -1,4 +1,4 @@
-# Copyright (c) 2025 PinkRibbon Contributors.
+# Copyright (c) 2025 Pritilata AI Contributors.
 # 
 # File Name: preprocess.py
 # Description: NULL

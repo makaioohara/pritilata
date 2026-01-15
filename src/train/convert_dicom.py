@@ -1,4 +1,4 @@
-# Copyright (c) 2026 PinkRibbon Contributors
+# Copyright (c) 2026 Pritilata AI Contributors
 #
 # File Name: convert_dicom.py
 # Description: Converts DICOM mammogram images to PNG format with optional resizing and normalization
