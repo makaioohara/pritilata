@@ -1,4 +1,4 @@
-# PinkRibbon
+# Pritilata AI
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/makaioohara/PinkRibbon)
 ![License](https://img.shields.io/badge/license-MIT-green)
