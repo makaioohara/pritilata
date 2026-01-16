@@ -5,7 +5,7 @@
 #   1. mam_data       – Collects and stores local paths for all mammogram images.
 #   2. mask_data      – Collects and stores local paths for all ROI mask annotations.
 #   3. final_dataset  – Merges mammogram and mask metadata using official dataset splits and outputs finalized training and test CSV files.
-# Notes: NULL
+# Notes: This module is not intended to be executed directly. It is imported and invoked by higher-level pipeline scripts (e.g., data_retrieval.py) after image format conversion has been completed.
 # Flow: This file is automatically executed when data_retrieval.py is manually run. The final output consists of training_dataset.csv and test_dataset.csv. It is imported and used by data_retrieval.py to build structured CSV metadata.
 
 from pathlib import Path

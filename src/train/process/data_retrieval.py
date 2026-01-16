@@ -10,7 +10,7 @@
 #                       2 – Benign Calcification
 #                       3 – Malignant Mass
 #                       4 – Benign Mass
-# Notes: This script relies on the official train/test split provided by the dataset authors. Ensure all required CSV metadata files and image directories exist before execution.
+# Notes: This script relies on the official train/test split provided by the dataset authors. Ensure all required CSV metadata files and png image directory exist before execution.
 # Flow: This script is typically manually executed after image preprocessing (e.g., DICOM-to-PNG conversion).
 #       It generates two output files:
 #           - training_dataset.csv
