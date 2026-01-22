@@ -1,4 +1,4 @@
-# Pritilata AI
+# Pritilata AI 🎗️
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/makaioohara/Pritilata)
 ![License](https://img.shields.io/badge/license-MIT-green)

@@ -1,0 +1,33 @@
+https://www.cancerimagingarchive.net/collection/cbis-ddsm/
+https://www.nature.com/articles/sdata2017177
+https://youtu.be/CF9RisBI-n0
+
+Signs and Symptoms of Breast Abnormalities:
+    Lump: May be detected during a self-breast examination.
+    Thickening of Breast Skin: Skin may feel firmer or appear dimpled.
+    Nipple Discharge: Any unusual fluid from the nipple should be noted.
+    Change in Breast Size or Firmness: One breast may appear larger, firmer, or differently shaped.
+    Breast Pain: Persistent or unusual pain in the breast area.
+
+Risk Factors for Breast Cancer:
+    BRCA1 or BRCA2 Gene Mutation: Presence of these genetic mutations increases risk.
+    Family History of BRCA Mutations: Having a first-degree relative (parent, brother, or sister) with BRCA1 or BRCA2 mutations, especially if genetic testing has not been done.
+    Chest Radiation Before Age 30: Previous radiation therapy to the chest at a young age.
+    Inherited Cancer Syndromes: Presence of Li-Fraumeni syndrome, Cowden syndrome, or Bannayan-Riley-Ruvalcaba syndrome, or having a first-degree relative with any of these syndromes.
+    Other Genetic Mutations: ATM or TP53 gene mutations.
+    Hormone Replacement Therapy (HRT): Use of HRT during menopause.
+
+Calcification Distribution:
+    Diffuse: Calcifications are seen randomly throughout the entire breast
+    Regional: Calcifications involving a quadrant or slightly more than a quadrant. Typically greater than 2 cm in dimension. KEY: Not in a ductal distribution!
+    Grouped: Previously known as clustered Calcifications in a small portion of the breast, close together. Usually used for calcifications within 1 cm of each other but can be used for up to 2 cm.
+    Linear: Forms a line. Suspicious. Concern for calcifications in a duct.
+    Segmental: Involving less than a quadrant of the breast. Concern for calcification in ducts.
+
+Decision Maps:
+    Developing Asymmetry: 13-27%
+
+KeyWords:
+    MLO = Mediolateral Oblique - The MLO view is taken at an angle (oblique), typically around 45 degrees, allowing visualization of more breast tissue, particularly in the upper-outer quadrant and the axilla (armpit area), where a majority of breast cancers are found. 
+    CC = Craniocaudal - In this view, the X-ray beam goes from the top (cranio) of the breast to the bottom (caudal), while the breast is compressed between two plates. This projection is best for viewing the medial (inner) and lateral (outer) parts of the breast tissue.
+    ROI = Region of Interest (ROI) refers to a specific area or volume within a medical imaging examination that is selectively chosen for detailed analysis.
