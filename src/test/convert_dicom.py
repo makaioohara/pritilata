@@ -1,9 +1,9 @@
 # Copyright (c) 2026 Pritilata AI Contributors
 #
 # File Name: convert_dicom.py
-# Description: Converts DICOM mammogram images to PNG format with optional resizing and normalization. Supports 8-bit or 16-bit PNG output and applies DICOM rescale slope/intercept automatically.
-# Notes: Input and output paths are resolved relative to the project root.
-# Flow: This script is intended to be run manually after dataset download and before metadata generation.
+# Description: Converts a DICOM mammogram image to PNG format, automatically applying rescale slope/intercept. Returns the PNG file path for further processing.
+# Notes: NULL
+# Flow: This script is intended to be run automatically if there is dicom test input preset during testing.
 
 import numpy as np
 import pydicom
@@ -11,21 +11,13 @@ import cv2
 import png
 from pathlib import Path
 
-
-BASE_DIR = Path(__file__).resolve().parents[3]
-
-DICOM_ROOT = BASE_DIR / "data/train/ddsm/images/dicom"
-PNG_ROOT = BASE_DIR / "data/train/ddsm/images/png"
+OUTPUT_DIR = Path("data/test/user/images/raw")
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 
-def save_dicom_image_as_png(
-    dicom_path: Path,
-    png_path: Path,
-    target_size=(896, 1152),
-    output_bitdepth=16,
-):
+def convert_dicom_to_png(dicom_path, target_size=(896, 1152), output_bitdepth=16):
     dicom_path = Path(dicom_path).resolve()
-    png_path = Path(png_path).resolve()
+    png_path = OUTPUT_DIR / f"{dicom_path.stem}.png"
     png_path.parent.mkdir(parents=True, exist_ok=True)
 
     try:
@@ -50,7 +42,10 @@ def save_dicom_image_as_png(
         image -= image.min()
         image /= image.max()
         image *= max_val
-        image = image.astype(np.uint16 if output_bitdepth > 8 else np.uint8)
+
+        # Convert to integer type
+        dtype = np.uint16 if output_bitdepth > 8 else np.uint8
+        image = image.astype(dtype)
 
         # Save as PNG
         with open(png_path, "wb") as f:
@@ -62,5 +57,7 @@ def save_dicom_image_as_png(
             )
             writer.write(f, image.tolist())
 
+        return str(png_path)
+
     except Exception as e:
-        raise RuntimeError(f"Failed to process!") from e
+        raise RuntimeError(f"Failed to convert!") from e

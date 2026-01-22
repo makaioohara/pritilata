@@ -6,32 +6,51 @@
 # Flow: This file is executed first whenever a user attempts to run a test on a new mammogram image. The input is typically an image in JPG, JPEG, or PNG format. Once the file is provided, it is passed on for pre-processing. Essentially, this file initiates the user experience, allowing the user to try out the outcome of the testing workflow.
 
 import os
-from test.preprocess import preprocess_image
 
-TEST_DATA_DIR = "../data/test"
+from preprocess import preprocess_image
+from convert_dicom import convert_dicom_to_png
+
+RAW_IMAGE_DIR = "data/test/user/images/raw"
+
+REQUIRED_IMAGES = ("LMLO", "LCC", "RMLO", "RCC")
+IMAGE_FORMATS = {".png", ".jpg", ".jpeg"}
+DICOM_FORMAT = ".dcm"
+
+
+def find_image(name):
+    for file in os.listdir(RAW_IMAGE_DIR):
+        base, ext = os.path.splitext(file)
+        if base == name and ext.lower() in IMAGE_FORMATS | {DICOM_FORMAT}:
+            return os.path.join(RAW_IMAGE_DIR, file)
+    return None
+
+
+def prepare_images():
+    paths = []
+
+    for name in REQUIRED_IMAGES:
+        path = find_image(name)
+        if not path:
+            print("Required image missing. Preprocessing cancelled.")
+            return None
+
+        ext = os.path.splitext(path)[1].lower()
+        if ext == DICOM_FORMAT:
+            path = convert_dicom_to_png(path)
+
+        paths.append(path)
+
+    return paths
+
 
 def main():
-
-    # Checking if the test directory exists
-    if not os.path.exists(TEST_DATA_DIR):
-        print("Error: data/test directory not found.")
+    image_paths = prepare_images()
+    if not image_paths:
         return
 
-    # Listing all files inside data/test
-    image_files = os.listdir(TEST_DATA_DIR)
+    print("Preprocessing images...")
+    preprocess_image(image_paths)
 
-    for file_name in image_files:
-        image_path = os.path.join(TEST_DATA_DIR, file_name)
 
-        # Skip folders or non-image files
-        if not file_name.lower().endswith((".png", ".jpg", ".jpeg")):
-            continue
-
-        print("Processing image...")
-
-        # Send the image path to preprocess.py
-        preprocess_image(image_path)
-
-# Run the main function only if this file is executed directly
 if __name__ == "__main__":
     main()
