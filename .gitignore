@@ -1,4 +1,5 @@
-# Lectures
+# Project Specific
+data/train/ddsm/images
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -31,7 +31,7 @@ def prepare_images():
     for name in REQUIRED_IMAGES:
         path = find_image(name)
         if not path:
-            print("Required image missing. Preprocessing cancelled.")
+            print("[FAILED] Required image missing. Preprocessing cancelled.")
             return None
 
         ext = os.path.splitext(path)[1].lower()
