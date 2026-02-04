@@ -6,29 +6,28 @@
 # Flow: This file is executed first whenever a user attempts to run a test on a new mammogram image. The input is typically an image in JPG, JPEG, or PNG format. Once the file is provided, it is passed on for pre-processing. Essentially, this file initiates the user experience, allowing the user to try out the outcome of the testing workflow.
 
 import os
-
-from preprocess import preprocess_image
+from preprocess import load_and_preprocess_images
 from convert_dicom import convert_dicom_to_png
 
-RAW_IMAGE_DIR = "data/test/user/images/raw"
+TESTING_IMAGE_DIR = "data/test/user/images/raw"
 
-REQUIRED_IMAGES = ("LMLO", "LCC", "RMLO", "RCC")
+IMAGE_VIEWS = ("L-CC", "L-MLO", "R-CC", "R-MLO")
 IMAGE_FORMATS = {".png", ".jpg", ".jpeg"}
 DICOM_FORMAT = ".dcm"
 
 
 def find_image(name):
-    for file in os.listdir(RAW_IMAGE_DIR):
+    for file in os.listdir(TESTING_IMAGE_DIR):
         base, ext = os.path.splitext(file)
         if base == name and ext.lower() in IMAGE_FORMATS | {DICOM_FORMAT}:
-            return os.path.join(RAW_IMAGE_DIR, file)
+            return os.path.join(TESTING_IMAGE_DIR, file)
     return None
 
 
 def prepare_images():
     paths = []
 
-    for name in REQUIRED_IMAGES:
+    for name in IMAGE_VIEWS:
         path = find_image(name)
         if not path:
             print("[FAILED] Required image missing. Preprocessing cancelled.")
@@ -49,8 +48,8 @@ def main():
         return
 
     print("Preprocessing images...")
-    preprocess_image(image_paths)
-
+    images_array = load_and_preprocess_images(image_paths)
+    print("Preprocessed images shape: ", images_array.shape)
 
 if __name__ == "__main__":
     main()
